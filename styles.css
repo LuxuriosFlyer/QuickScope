@@ -1,0 +1,55 @@
+body{
+    font-family: "Poppins", sans-serif;
+}
+
+button{
+    font-family: "Poppins", sans-serif;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 150px;
+}
+
+.outer-sec{
+    display: flex;
+    justify-content: space-around;
+    /* align-items: center; */
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.cell{
+    height: 105px;
+    width: 60vw/6;
+    background-color: black;
+}
+
+img{
+    height: 30px;
+    width: 30px;
+}
+
+.left-sec{
+    width: 15vw;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    justify-content: space-evenly;
+}
+
+.left-sec-h3{
+    margin: 0px;
+}
+
+.mid-sec{
+    width: 60vw;
+}
+
+.right-sec{
+    width: 15vw;
+}
