@@ -1,9 +1,14 @@
 body{
     font-family: "Poppins", sans-serif;
-    background-image: url(./bg-images/Screenshot\ 2024-08-16\ 220433.png);
+    background-image: url(./bg-images/dark-bg.png);
     background-size: 5vh;
     color: rgb(173, 255, 47);
     /* color: rgb(250, 59, 59); */
+}
+
+.light-body{
+    background-image: url(./bg-images/light-bg.jpg);
+    color: rgb(250, 59, 59);
 }
 
 button{
@@ -20,6 +25,15 @@ button{
     color: rgb(173, 255, 47);
     font-weight: 700;
     font-size: 14px;
+}
+
+.light-button{
+    color: rgb(250, 59, 59);
+}
+
+.light-button:hover{
+    background-color: rgb(250, 59, 59);
+    color: white;
 }
 
 button:hover{
