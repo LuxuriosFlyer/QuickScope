@@ -3,7 +3,6 @@ body{
     background-image: url(./bg-images/dark-bg.png);
     background-size: 5vh;
     color: rgb(173, 255, 47);
-    /* color: rgb(250, 59, 59); */
 }
 
 .light-body{
@@ -29,12 +28,13 @@ button{
 
 .light-button{
     color: rgb(250, 59, 59);
+    &:hover{
+        background-color: rgb(250, 59, 59);
+        color: white;
+    }
 }
 
-.light-button:hover{
-    background-color: rgb(250, 59, 59);
-    color: white;
-}
+
 
 button:hover{
     background-color: rgb(173, 255, 47);
@@ -56,6 +56,9 @@ h1{
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+    border: dashed 5px;
+    border-color: orange;
+    border-radius: 2%;
 }
 
 .left-sec{
@@ -74,8 +77,6 @@ h1{
 .difficulty{
     display: flex;
     flex-direction: column;
-    /* justify-content: space-evenly; */
-    /* align-items: center; */
     gap: 10px;
 }
 
@@ -83,9 +84,38 @@ h1{
     width: 60vw;
 }
 
-.mid-sec h1{
+.title{
     display: flex;
     justify-content: center;
+}
+
+.starting-msg{
+    position: absolute;
+    font-family: 'Press Start 2P', cursive;
+    top: 50%;
+    left: 27.5%;
+    font-size: 50px;
+    color: orange;
+    padding: 0px;
+    margin: 0px;
+    animation: blink 1s infinite;
+    visibility: hidden;
+}
+
+.visible{
+    visibility: visible;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .cell{
