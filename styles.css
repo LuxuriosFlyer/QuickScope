@@ -3,6 +3,7 @@ body{
     background-image: url(./bg-images/dark-bg.png);
     background-size: 5vh;
     color: rgb(173, 255, 47);
+    margin: 0px;
 }
 
 .light-body{
@@ -48,17 +49,6 @@ h1{
 .outer-sec{
     display: flex;
     justify-content: space-around;
-}
-
-.container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    border: dashed 5px;
-    border-color: orange;
-    border-radius: 2%;
 }
 
 .left-sec{
@@ -118,10 +108,63 @@ h1{
     }
 }
 
-.cell{
+.container {
+    display: grid;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    border: dashed 5px;
+    border-color: orange;
+    border-radius: 2%;
+    height: (105*6)px;
+    width: 60vw;
+}
+
+.easy-container{
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.normal-container{
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.hard-container{
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+}
+
+.easy-cell{
+    height: 157.5px;
+    width: 60vw/6;
+}
+
+.normal-cell{
     height: 105px;
     width: 60vw/6;
-    /* background-color: white; */
+}
+
+.hard-cell{
+    height: 78.7px;
+    width: 60vw/6;
+}
+
+.dark-cell{
+    border-radius: 5%;
+    background-image: url("./bg-images/dark-cell-bg.png");
+    background-size: cover;
+    border-style: dashed;
+    border-color: rgb(173, 255, 47);
+    border-width: 2px;
+}
+
+.light-cell{
+    border-radius: 5%;
+    background-image: url("./bg-images/light-cell-bg.png");
+    background-size: cover;
+    border-style: dashed;
+    border-color: orange;
+    border-width: 2px;
 }
 
 .right-sec{
