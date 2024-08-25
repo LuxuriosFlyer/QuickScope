@@ -25,6 +25,10 @@ button{
     color: rgb(173, 255, 47);
     font-weight: 700;
     font-size: 14px;
+    &:hover{
+        background-color: rgb(173, 255, 47);
+        color: black;
+    }
 }
 
 .light-button{
@@ -33,13 +37,6 @@ button{
         background-color: rgb(250, 59, 59);
         color: white;
     }
-}
-
-
-
-button:hover{
-    background-color: rgb(173, 255, 47);
-    color: black;
 }
 
 h1{
@@ -119,6 +116,10 @@ h1{
     width: 60vw;
 }
 
+.container:hover {
+    cursor: url("./Icons/crosshair\ \(1\).svg"), auto;
+}
+
 .easy-container{
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
@@ -153,18 +154,18 @@ h1{
     border-radius: 5%;
     background-image: url("./bg-images/dark-cell-bg.png");
     background-size: cover;
-    border-style: dashed;
+    /* border-style: dashed; */
     border-color: rgb(173, 255, 47);
-    border-width: 2px;
+    /* border-width: 1px; */
 }
 
 .light-cell{
     border-radius: 5%;
     background-image: url("./bg-images/light-cell-bg.png");
     background-size: cover;
-    border-style: dashed;
+    /* border-style: dashed; */
     border-color: orange;
-    border-width: 2px;
+    /* border-width: 1px; */
 }
 
 .right-sec{

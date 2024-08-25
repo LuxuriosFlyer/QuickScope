@@ -7,8 +7,10 @@ let containerClasses  = document.querySelector(".container").classList;
 let score = 0;
 let numCell = 36;
 let startTime;
-let intervalId;
+let timerInterval;
+let lightInterval;
 let blankCells;
+let gameOn = false;
 
 scores[2].innerText = `Highscore: ${highscores["Normal"]} (${difficulty})`;
 containerClasses.add("normal-container");
@@ -145,13 +147,16 @@ buttons[2].addEventListener("click", function(){
 
 document.querySelector(".container").addEventListener("click", function(){
     document.querySelector(".starting-msg").classList.remove("visible");
-    startTimer();
-    lightUpCells();
+    if(!gameOn){
+        gameOn = true;
+        startTimer();
+        lightUpCells();
+    }
 })
 
 function startTimer() {
     startTime = Date.now();
-    intervalId = setInterval(() => {
+    timerInterval = setInterval(() => {
       const elapsedTime = Date.now() - startTime;
       const seconds = Math.floor(elapsedTime / 1000);
       const milliseconds = Math.floor(elapsedTime);
@@ -159,16 +164,65 @@ function startTimer() {
   
       document.getElementById("timer").textContent = `Time : ${formattedTime}`;
       if(seconds == 30){
+        if(score>highscores[difficulty]){
+            highscores[difficulty] = score;
+        }
         document.getElementById("timer").textContent = "Time : 30:00";
+        if(!document.querySelector(".starting-msg").classList.contains("visible")){
+            document.querySelector(".starting-msg").classList.add("visible");
+        }
         stopTimer();
       }
     }, 1);
   }
   
   function stopTimer() {
-    clearInterval(intervalId);
+    score = 0;
+    document.getElementById("score").innerText = `Score : ${score}`;
+    document.getElementById("highscore").innerText = `Highscore: ${highscores[difficulty]} (${difficulty})`;
+    gameOn = false;
+    clearInterval(timerInterval);
+    clearInterval(lightInterval);
+    stopCells();
   }
 
   function lightUpCells(){
+    lightInterval = setInterval(() => {
+        let ind = Math.floor((Math.random() * blankCells.length));
+        if(theme == "dark"){
+            if(!blankCells[ind].classList.contains("dark-cell")){
+                blankCells[ind].classList.add("dark-cell");
+            }
+            blankCells[ind].addEventListener("click", function() {
+                if(blankCells[ind].classList.contains("dark-cell")){
+                    score++;
+                    this.classList.remove("dark-cell");
+                }
+                document.getElementById("score").innerText = `Score : ${score}`;
+            })
+        }
+        else{
+            if(!blankCells[ind].classList.contains("light-cell")){
+                blankCells[ind].classList.add("light-cell");
+            }
+            blankCells[ind].addEventListener("click", function() {
+                if(blankCells[ind].classList.contains("light-cell")){
+                    score++;
+                    this.classList.remove("light-cell");
+                }
+                document.getElementById("score").innerText = `Score : ${score}`;
+            })
+        }
+      }, 300);
+  }
 
+  function stopCells(){
+    for(let i=0; i<blankCells.length; i++){
+        if(blankCells[i].classList.contains("dark-cell")){
+            blankCells[i].classList.remove("dark-cell");
+        }
+        if(blankCells[i].classList.contains("light-cell")){
+            blankCells[i].classList.remove("light-cell");
+        }
+    }
   }
