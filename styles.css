@@ -117,7 +117,7 @@ h1{
 }
 
 .container:hover {
-    cursor: url("./Icons/crosshair\ \(1\).svg"), auto;
+    cursor: url("./Icons/crosshair.svg"), auto;
 }
 
 .easy-container{
